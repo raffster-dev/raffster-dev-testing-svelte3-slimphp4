@@ -10,6 +10,17 @@ Build the image inside the *docker-nginx-php-fpm* folder:
 $ docker build --tag nginxphp:74 .
 ```
 
+Setup svelte:
+
+```bash
+$ npm install && npm run build
+```
+
+Setup slim:
+```bash
+$ docker run --rm -it -p 80:80 -v $(pwd):/var/www/html/000-default/ -w /var/www/html/000-default/ --user $(id -u):$(id -g) nginxphp:74 composer install
+```
+
 Run the server:
 
 ```bash
